@@ -1,9 +1,9 @@
 /*
  * Promise Polyfill
- * Lightweight ES6 Promise polyfill for the browser and node. 
- * Adheres closely to the spec. It is a perfect polyfill IE, Firefox 
+ * Lightweight ES6 Promise polyfill for the browser and node.
+ * Adheres closely to the spec. It is a perfect polyfill IE, Firefox
  * or any other browser that does not support native promises.
- * 
+ *
  * Website: https://github.com/taylorhakes/promise-polyfill
  * Copyright: (c) 2014 Taylor Hakes
  * Copyright: (c) 2014 Forbes Lindesay
@@ -44,7 +44,10 @@ h=w(h,33),h=u(h,m),e=p(e,h),e=w(e,31),e=v(e,d),e=v(u(e,[0,5]),[0,944331445]);f=[
 					throw "No test registered with the alias " + x;
 				return _tests[x]();
 			})).then(function(values){
-				//console.log(values);
+        if (/debug/.test(window.location.search)) {
+          console.debug('Tests:', _tests);
+  				console.debug('Results:', values);
+        }
 				return murmurHash3.x86.hash128(values.join("~"));
 			})
 		},
@@ -65,4 +68,3 @@ h=w(h,33),h=u(h,m),e=p(e,h),e=w(e,31),e=v(e,d),e=v(u(e,[0,5]),[0,944331445]);f=[
 	scope.imprint = imprint;
 
 })(window);
-
